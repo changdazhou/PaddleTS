@@ -251,7 +251,8 @@ class AnomalyBaseModel(abc.ABC):
 
         else:
             return self._optimizer_fn(
-                **self._optimizer_params, parameters=self._network.parameters())
+                **self._optimizer_params,
+                parameters=self._network.parameters())
 
     def _init_fit_dataloaders(
             self,
@@ -831,7 +832,8 @@ class AnomalyBaseModel(abc.ABC):
         else:
             internal_filename_map = {
                 "model_meta": "%s_%s" % (modelname, "model_meta"),
-                "network_statedict": "%s/%s" % ('best_model', "model.pdparams"),
+                "network_statedict":
+                "%s/%s" % ('best_model', "model.pdparams"),
                 "network_model": modelname,
                 # currently ignore optimizer.
                 # "optimizer_statedict": "%s_%s" % (modelname, "optimizer_statedict"),
